@@ -103,11 +103,11 @@ int main(int argc, char** argv){
 
     // Initialize Run manager
 		////////////////////////////////////////////////////////////////////////////
-		
-    runManager->Initialize(); 
 
-		// do initialization in all macro files, 
-		//see remoll examples for assistance. 
+    runManager->Initialize();
+
+		// do initialization in all macro files,
+		//see remoll examples for assistance.
 
 
     /*
@@ -127,7 +127,7 @@ int main(int argc, char** argv){
     {
 
 	// G4UIterminal is a (dumb) terminal.
-	
+
 #if defined(G4UI_USE_QT)
 	session = new G4UIQt(argc,argv);
 #elif defined(G4UI_USE_WIN32)

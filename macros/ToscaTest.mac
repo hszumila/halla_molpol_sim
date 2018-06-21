@@ -1,0 +1,31 @@
+/run/initialize
+
+/MolPol/gen               moller
+/MolPol/filename          MolPol_REMOLL.root
+/MolPol/calculateLevchuk  true
+/MolPol/targetPolPct      0.075
+/MolPol/radCorrections    true
+/MolPol/remollMS          true
+/MolPol/seed              50
+
+/MolPol/fz                6.9 cm
+
+/MolPol/thcommin          70 deg
+/MolPol/thcommax          110 deg
+/MolPol/phimin            -25 deg
+/MolPol/phimax            25  deg
+
+/MolPol/beamE             11.0 GeV
+/field/MagSourceMode      2
+/field/setToscaQ1         TOSCA/q1_6.47kG.table
+/field/setToscaQ2         TOSCA/q2_6.145kG.table
+/field/setToscaDp         TOSCA/lilly_119kG.table
+/field/setToscaQ1Scale    1.001
+/field/setToscaQ2Scale    1.001
+/field/setToscaQ3Scale    1.001
+/field/setToscaQ4Scale    1.001
+/field/setToscaDpScale    1.001
+
+/field/update
+
+/run/beamOn               1

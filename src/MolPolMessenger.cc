@@ -20,101 +20,101 @@
 #include "G4VPhysicalVolume.hh"
 
 MolPolMessenger::MolPolMessenger(){
-    /*  Initialize all the things it talks to to NULL */
+  /*  Initialize all the things it talks to to NULL */
 
-    fIO           = NULL;
-    fdetcon       = NULL;
-    fevact        = NULL;
-    fprigen       = NULL;
-    fStepAct      = NULL;
-    //    fFieldSet     = NULL;
+  fIO           = NULL;
+  fdetcon       = NULL;
+  fevact        = NULL;
+  fprigen       = NULL;
+  fStepAct      = NULL;
+  //    fFieldSet     = NULL;
 
-    fMolPolDir = new G4UIdirectory("/MolPol/");
-    fMolPolDir->SetGuidance("UI commands of this code");
+  fMolPolDir = new G4UIdirectory("/MolPol/");
+  fMolPolDir->SetGuidance("UI commands of this code");
 
-    fileCmd = new G4UIcmdWithAString("/MolPol/filename",this);
-    fileCmd->SetGuidance("Output filename");
-    fileCmd->SetParameterName("filename", false);
+  fileCmd = new G4UIcmdWithAString("/MolPol/filename",this);
+  fileCmd->SetGuidance("Output filename");
+  fileCmd->SetParameterName("filename", false);
 
-    seedCmd = new G4UIcmdWithAnInteger("/MolPol/seed",this);
-    seedCmd->SetGuidance("Set random engine seed");
-    seedCmd->SetParameterName("seed", false);
+  seedCmd = new G4UIcmdWithAnInteger("/MolPol/seed",this);
+  seedCmd->SetGuidance("Set random engine seed");
+  seedCmd->SetParameterName("seed", false);
 
-    genSelectCmd = new G4UIcmdWithAString("/MolPol/gen",this);
-    genSelectCmd->SetGuidance("Select generator");
-    genSelectCmd->SetParameterName("generator", false);
+  genSelectCmd = new G4UIcmdWithAString("/MolPol/gen",this);
+  genSelectCmd->SetGuidance("Select generator");
+  genSelectCmd->SetParameterName("generator", false);
 
-    fXminCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/xmin", this);
-    fXminCmd->SetGuidance("Set x range minimum");
-    fXminCmd->SetParameterName("xmin", false);
+  fXminCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/xmin", this);
+  fXminCmd->SetGuidance("Set x range minimum");
+  fXminCmd->SetParameterName("xmin", false);
 
-    fXmaxCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/xmax", this);
-    fXmaxCmd->SetGuidance("Set x range maximum");
-    fXmaxCmd->SetParameterName("xmax", false);
+  fXmaxCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/xmax", this);
+  fXmaxCmd->SetGuidance("Set x range maximum");
+  fXmaxCmd->SetParameterName("xmax", false);
 
-    fYminCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/ymin", this);
-    fYminCmd->SetGuidance("Set y range minimum");
-    fYminCmd->SetParameterName("ymin", false);
+  fYminCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/ymin", this);
+  fYminCmd->SetGuidance("Set y range minimum");
+  fYminCmd->SetParameterName("ymin", false);
 
-    fYmaxCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/ymax", this);
-    fYmaxCmd->SetGuidance("Set y range maximum");
-    fYmaxCmd->SetParameterName("ymax", false);
+  fYmaxCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/ymax", this);
+  fYmaxCmd->SetGuidance("Set y range maximum");
+  fYmaxCmd->SetParameterName("ymax", false);
 
-    fBeamECmd = new G4UIcmdWithADoubleAndUnit("/MolPol/beamE", this);
-    fBeamECmd->SetGuidance("Set beam energy");
-    fBeamECmd->SetParameterName("beamE", false);
+  fBeamECmd = new G4UIcmdWithADoubleAndUnit("/MolPol/beamE", this);
+  fBeamECmd->SetGuidance("Set beam energy");
+  fBeamECmd->SetParameterName("beamE", false);
 
-    fEminCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/emin", this);
-    fEminCmd->SetGuidance("Set energy range minimum");
-    fEminCmd->SetParameterName("emin", false);
+  fEminCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/emin", this);
+  fEminCmd->SetGuidance("Set energy range minimum");
+  fEminCmd->SetParameterName("emin", false);
 
-    fEmaxCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/emax", this);
-    fEmaxCmd->SetGuidance("Set Energy range maximum");
-    fEmaxCmd->SetParameterName("emax", false);
+  fEmaxCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/emax", this);
+  fEmaxCmd->SetGuidance("Set Energy range maximum");
+  fEmaxCmd->SetParameterName("emax", false);
 
-    fthetaComMinCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/thcommin", this);
-    fthetaComMinCmd->SetGuidance("Set thcom range minimum");
-    fthetaComMinCmd->SetParameterName("thcommin", false);
+  fthetaComMinCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/thcommin", this);
+  fthetaComMinCmd->SetGuidance("Set thcom range minimum");
+  fthetaComMinCmd->SetParameterName("thcommin", false);
 
-    fthetaComMaxCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/thcommax", this);
-    fthetaComMaxCmd->SetGuidance("Set thcom range maximum");
-    fthetaComMaxCmd->SetParameterName("thcommax", false);
+  fthetaComMaxCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/thcommax", this);
+  fthetaComMaxCmd->SetGuidance("Set thcom range maximum");
+  fthetaComMaxCmd->SetParameterName("thcommax", false);
 
-    fthetaMinCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/thetamin", this);
-    fthetaMinCmd->SetGuidance("Set theta range minimum");
-    fthetaMinCmd->SetParameterName("thetamin", false);
+  fthetaMinCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/thetamin", this);
+  fthetaMinCmd->SetGuidance("Set theta range minimum");
+  fthetaMinCmd->SetParameterName("thetamin", false);
 
-    fthetaMaxCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/thetamax", this);
-    fthetaMaxCmd->SetGuidance("Set theta range maximum");
-    fthetaMaxCmd->SetParameterName("thetamax", false);
+  fthetaMaxCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/thetamax", this);
+  fthetaMaxCmd->SetGuidance("Set theta range maximum");
+  fthetaMaxCmd->SetParameterName("thetamax", false);
 
-    fphiMinCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/phimin", this);
-    fphiMinCmd->SetGuidance("Set phi range minimum");
-    fphiMinCmd->SetParameterName("phimin", false);
+  fphiMinCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/phimin", this);
+  fphiMinCmd->SetGuidance("Set phi range minimum");
+  fphiMinCmd->SetParameterName("phimin", false);
 
-    fphiMaxCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/phimax", this);
-    fphiMaxCmd->SetGuidance("Set phi range maximum");
-    fphiMaxCmd->SetParameterName("phimax", false);
+  fphiMaxCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/phimax", this);
+  fphiMaxCmd->SetGuidance("Set phi range maximum");
+  fphiMaxCmd->SetParameterName("phimax", false);
 
-    fLevchukEffectCmd = new G4UIcmdWithABool("/MolPol/calculateLevchuk", this);
-    fLevchukEffectCmd->SetGuidance("Set Levchuck Effect On:True Off:False");
-    fLevchukEffectCmd->SetParameterName("calculateLevchuk",false);
+  fLevchukEffectCmd = new G4UIcmdWithABool("/MolPol/calculateLevchuk", this);
+  fLevchukEffectCmd->SetGuidance("Set Levchuck Effect On:True Off:False");
+  fLevchukEffectCmd->SetParameterName("calculateLevchuk",false);
 
-    fZCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/fz", this);
-    fZCmd->SetGuidance("Set particle z");
-    fZCmd->SetParameterName("fz", false);
+  fZCmd = new G4UIcmdWithADoubleAndUnit("/MolPol/fz", this);
+  fZCmd->SetGuidance("Set particle z");
+  fZCmd->SetParameterName("fz", false);
 
-    fRadCorrCmd = new G4UIcmdWithABool("/MolPol/radCorrections",this);
-    fRadCorrCmd->SetGuidance("Radiative corrections? True:On False:Off");
-    fRadCorrCmd->SetParameterName("radCorrections",false);
+  fRadCorrCmd = new G4UIcmdWithABool("/MolPol/radCorrections",this);
+  fRadCorrCmd->SetGuidance("Radiative corrections? True:On False:Off");
+  fRadCorrCmd->SetParameterName("radCorrections",false);
 
-    fRemollMSFlagCmd = new G4UIcmdWithABool("/MolPol/remollMS",this);
-    fRemollMSFlagCmd->SetGuidance("Remoll Multiple Scattering? True:On False:Off");
-    fRemollMSFlagCmd->SetParameterName("remollMS",false);
+  fRemollMSFlagCmd = new G4UIcmdWithABool("/MolPol/remollMS",this);
+  fRemollMSFlagCmd->SetGuidance("Remoll Multiple Scattering? True:On False:Off");
+  fRemollMSFlagCmd->SetParameterName("remollMS",false);
 
-    fTargPolCmd = new G4UIcmdWithADouble("/MolPol/targetPolPct",this);
-    fTargPolCmd->SetGuidance("Target polarization percentage? (Between 0 and 1)");
-    fTargPolCmd->SetParameterName("targetPolPct",false);
+  fTargPolCmd = new G4UIcmdWithADouble("/MolPol/targetPolPct",this);
+  fTargPolCmd->SetGuidance("Target polarization percentage? (Between 0 and 1)");
+  fTargPolCmd->SetParameterName("targetPolPct",false);
 }
 
 MolPolMessenger::~MolPolMessenger(){

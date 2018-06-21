@@ -7,8 +7,8 @@ class MolPolEMFieldSetup;
 class G4UIdirectory;
 class G4UIcmdWithAnInteger;
 class G4UIcmdWithADouble;
-class G4UIcmdWithADoubleAndUnit;
 class G4UIcmdWithoutParameter;
+class G4UIcmdWithAString;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -40,6 +40,21 @@ class MolPolEMFieldMessenger: public G4UImessenger
     G4UIcmdWithADouble*        fQ4TCmd;
     G4UIcmdWithADouble*        fQ5TCmd;
     G4UIcmdWithADouble*        fQ6TCmd;
+
+    G4UIcmdWithAString*        fToscaQ1Cmd;
+    G4UIcmdWithAString*        fToscaQ2Cmd;
+    G4UIcmdWithAString*        fToscaDpCmd;
+
+    G4UIcmdWithADouble*        fToscaQ1ScaleCmd;
+    G4UIcmdWithADouble*        fToscaQ1CurrentCmd;
+    G4UIcmdWithADouble*        fToscaQ2ScaleCmd;
+    G4UIcmdWithADouble*        fToscaQ2CurrentCmd;
+    G4UIcmdWithADouble*        fToscaQ3ScaleCmd;
+    G4UIcmdWithADouble*        fToscaQ3CurrentCmd;
+    G4UIcmdWithADouble*        fToscaQ4ScaleCmd;
+    G4UIcmdWithADouble*        fToscaQ4CurrentCmd;
+    G4UIcmdWithADouble*        fToscaDpScaleCmd;
+    G4UIcmdWithADouble*        fToscaDpCurrentCmd;
 
     G4UIcmdWithoutParameter*   fUpdateCmd;
 
