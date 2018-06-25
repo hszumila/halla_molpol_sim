@@ -42,6 +42,7 @@ public:
   G4double fthetaComMin, fthetaComMax;
   G4double fphiMin, fphiMax;
   G4String fBeamPol;
+  G4double fSampE;
   void SourceModeSet(G4int );
   void SetGenerator(G4String genname){ gentype = genname; }
   G4bool fLevchukFlag;
